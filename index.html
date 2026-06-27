@@ -2,301 +2,276 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sen uchun Sarvara ❤️</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>💕</title>
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
-overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
 height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(-45deg,#ff4fa3,#ff74b8,#ff9fd2,#ffc3e5);
-background-size:400% 400%;
-animation:bg 10s ease infinite;
-}
-
-@keyframes bg{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-.screen{
-position:absolute;
-width:100%;
-height:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px;
-transition:.6s;
-}
-
-.hidden{
-opacity:0;
-pointer-events:none;
-transform:scale(.9);
+overflow:hidden;
+background:linear-gradient(135deg,#ffd9ea,#ffc2dd,#ffb2d2);
 }
 
 .card{
-width:100%;
+width:90%;
 max-width:420px;
-background:rgba(255,255,255,.18);
-backdrop-filter:blur(18px);
-border-radius:30px;
-padding:35px 25px;
-text-align:center;
-box-shadow:0 20px 45px rgba(0,0,0,.25);
-color:white;
-}
-
-h1{
-font-size:34px;
-margin-bottom:15px;
-}
-
-h2{
-font-size:28px;
-margin-bottom:20px;
-}
-
-p{
-font-size:18px;
-line-height:1.6;
-margin-bottom:25px;
-}
-
-button{
-border:none;
-padding:15px 22px;
-border-radius:50px;
-font-size:18px;
-cursor:pointer;
-margin:10px;
-transition:.25s;
-min-width:240px;
-font-weight:bold;
-}
-
-.yes{
 background:#fff;
-color:#ff2c88;
-}
-
-.no{
-background:#ff2c88;
-color:white;
+border-radius:30px;
+padding:35px 20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
 position:relative;
 }
 
-.yes:hover{
-transform:scale(1.06);
+h1{
+color:#ff4d8d;
+font-size:30px;
+margin-bottom:15px;
 }
 
-#result h1{
-font-size:42px;
+#question{
+font-size:20px;
+color:#555;
+margin-bottom:30px;
 }
 
-#result p{
-font-size:24px;
-margin-top:20px;
+button{
+width:100%;
+padding:15px;
+margin:10px 0;
+border:none;
+border-radius:40px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+#yes{
+background:#ff4d8d;
+color:white;
+}
+
+.no{
+background:white;
+border:2px solid #ff4d8d;
+color:#ff4d8d;
+position:absolute;
+width:240px;
+left:50%;
+transform:translateX(-50%);
+}
+
+#no1{
+top:235px;
+}
+
+#no2{
+top:305px;
+}
+    .no:hover{
+transform:translateX(-50%) scale(1.05);
+}
+
+.fade{
+animation:fade .4s;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:scale(.9);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
 }
 
 .heart{
 position:fixed;
-bottom:-30px;
-font-size:22px;
-animation:fly linear forwards;
+font-size:24px;
+animation:fly 4s linear infinite;
 pointer-events:none;
 }
 
 @keyframes fly{
 0%{
-transform:translateY(0) rotate(0deg);
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
 opacity:1;
 }
 100%{
-transform:translateY(-120vh) rotate(360deg);
+transform:translateY(-120vh);
 opacity:0;
 }
 }
-    <div class="screen hidden" id="q2">
+</style>
+</head>
 
-<div class="card">
+<body>
 
-<h2>Qayerga boramiz?</h2>
+<div class="card" id="card">
 
-<button class="yes" onclick="showQuestion(3)">
-Shahar aylanamiz ✅
-</button>
+<h1>💕 Taklif 💕</h1>
 
-<br>
-
-<button class="no">
-Vaqtim bo'lmaydi ❌
-</button>
-
-<br>
-
-<button class="no">
-Hech qayerga ❌
-</button>
-
-</div>
+<div id="question">
+Dushanba kuni vaqting bormi?
 </div>
 
-<div class="screen hidden" id="q3">
-
-<div class="card">
-
-<h2>Qanaqa kino ko'ramiz?</h2>
-
-<button class="yes" onclick="finishQuiz()">
-Samolardan balanda ✅
+<button id="yes" onclick="nextQuestion()">
+Ha albatta ❤️
 </button>
 
-<br>
-
-<button class="no">
-Ujis kino ❌
+<button class="no" id="no1">
+Band bo'lishim mumkin 😅
 </button>
 
-<br>
-
-<button class="no">
-O'zbek kino ❌
+<button class="no" id="no2">
+Bilmayman 🤭
 </button>
-
-</div>
-</div>
-
-<div class="screen hidden" id="result">
-
-<div class="card">
-
-<h1>🥰</h1>
-
-<h2>Uchrashuv tasdiqlandi!</h2>
-
-<p>
-Dushanba kuni seni kutaman,<br>
-Sarvara! ❤️
-</p>
-
-</div>
 
 </div>
 
 <script>
 
-const screens=[
-document.getElementById("start"),
-document.getElementById("q1"),
-document.getElementById("q2"),
-document.getElementById("q3"),
-document.getElementById("result")
+let step=0;
+
+const questions=[
+"Dushanba kuni vaqting bormi? 💕",
+"Meni bilan uchrashishga rozimisan? 🥰",
+"Unda dushanba kuni uchrashamizmi? ❤️"
+    
 ];
+    function move(btn){
 
-function hideAll(){
-screens.forEach(s=>{
-s.classList.add("hidden");
+const x=Math.random()*(window.innerWidth-260);
+const y=100+Math.random()*(window.innerHeight-220);
+
+btn.style.left=x+"px";
+btn.style.top=y+"px";
+
+}
+
+const no1=document.getElementById("no1");
+const no2=document.getElementById("no2");
+
+["mouseover","touchstart"].forEach(event=>{
+
+no1.addEventListener(event,e=>{
+if(event==="touchstart") e.preventDefault();
+move(no1);
 });
+
+no2.addEventListener(event,e=>{
+if(event==="touchstart") e.preventDefault();
+move(no2);
+});
+
+});
+
+function nextQuestion(){
+
+step++;
+
+if(step<questions.length){
+
+document.getElementById("question").innerHTML=questions[step];
+
+move(no1);
+move(no2);
+
+}else{
+
+finish();
+
 }
 
-function showQuestion(num){
-hideAll();
-document.getElementById("q"+num).classList.remove("hidden");
-    }function finishQuiz(){
+}
+function finish(){
 
-hideAll();
-
-document.getElementById("result").classList.remove("hidden");
-
-for(let i=0;i<80;i++){
-
-setTimeout(createHeart,i*120);
-
+document.body.innerHTML=`
+<style>
+body{
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(135deg,#ffd6e7,#ffc2da,#ffb3d1);
+overflow:hidden;
+font-family:Arial,sans-serif;
 }
 
+.box{
+text-align:center;
+color:white;
+animation:pop .6s;
+padding:20px;
 }
 
-function createHeart(){
+.box h1{
+font-size:42px;
+margin-bottom:20px;
+text-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+.box p{
+font-size:22px;
+}
+
+@keyframes pop{
+from{
+opacity:0;
+transform:scale(.7);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+</style>
+
+<div class="box">
+<h1>🥰 Uchrashuv tasdiqlandi! ❤️</h1>
+<p>Dushanba kuni seni kutaman 💖</p>
+</div>
+`;
+
+for(let i=0;i<50;i++){
 
 const heart=document.createElement("div");
 
-heart.className="heart";
+heart.innerHTML="💖";
 
-heart.innerHTML=Math.random()>0.5?"❤️":"💖";
+heart.className="heart";
 
 heart.style.left=Math.random()*100+"vw";
 
-heart.style.fontSize=(20+Math.random()*30)+"px";
+heart.style.top=(100+Math.random()*200)+"px";
 
-heart.style.animationDuration=(4+Math.random()*3)+"s";
+heart.style.animationDuration=(2+Math.random()*4)+"s";
+
+heart.style.fontSize=(18+Math.random()*20)+"px";
 
 document.body.appendChild(heart);
 
-setTimeout(()=>{
-
-heart.remove();
-
-},7000);
-
 }
 
-const noButtons=document.querySelectorAll(".no");
-
-function move(btn){
-
-const x=Math.random()*(window.innerWidth-220);
-
-const y=Math.random()*(window.innerHeight-80);
-
-btn.style.position="fixed";
-btn.style.left=x+"px";
-btn.style.top=y+"px";
-    noButtons.forEach(btn=>{
-
-btn.addEventListener("mouseenter",()=>move(btn));
-
-btn.addEventListener("touchstart",(e)=>{
-
-e.preventDefault();
-
-move(btn);
-
-});
-
-btn.addEventListener("click",(e)=>{
-
-e.preventDefault();
-
-move(btn);
-
-});
-
-});
-
-for(let i=0;i<20;i++){
-
-setTimeout(createHeart,i*400);
-
 }
-
-</script>
+    </script>
 
 </body>
-
 </html>
-
-    }
